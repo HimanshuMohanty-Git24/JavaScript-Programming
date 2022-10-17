@@ -33,3 +33,8 @@ function square(num) {
 }
 let result = square(2);
 console.log(result);
+let n1 = "Hima";
+let n2 = "Ram";
+//Backticks are generally used when you need to include variables or expressions into a string.
+let res = `Both ${n1} and ${n2} study in KIIT`;
+console.log(res);
