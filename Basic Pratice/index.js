@@ -8,10 +8,10 @@ let isApproved = true;
 if (isApproved) {
     console.log('True he bhai log');
 }
-let person ={//object
+let person = {//object
     name: 'Hima',
     age: 30
-}
+};
 console.log(person);
 console.log(person.name);
 let selection = 'name';
@@ -38,3 +38,7 @@ let n2 = "Ram";
 //Backticks are generally used when you need to include variables or expressions into a string.
 let res = `Both ${n1} and ${n2} study in KIIT`;
 console.log(res);
+const value1 = Symbol("Hello");
+console.log(value1);
+console.log(typeof (res));
+console.log(4 ** 2);//power
