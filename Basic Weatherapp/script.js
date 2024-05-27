@@ -1,4 +1,5 @@
 const button = document.getElementById("search-button");
+const getloc_button = document.getElementById("getloc-button");
 const input = document.getElementById("city-input");
 const cityName = document.getElementById("city-name");
 const weather = document.getElementById("weather");
@@ -38,4 +39,26 @@ button.addEventListener("click",async () => {
     weather.innerText = res.current.condition.text;
     weatherIcon.src = res.current.condition.icon;
     dateTime.innerText = res.location.localtime;
+})
+
+getloc_button.addEventListener("click", () =>{
+    if(navigator.geolocation){
+        navigator.geolocation.getCurrentPosition(async (position) => {
+            const lat = position.coords.latitude;
+            const long = position.coords.longitude;
+            const response = await fetch(
+                `http://api.weatherapi.com/v1/current.json?key=797293ff06a041d69e2150953242705&q=${lat},${long}&aqi=no`
+            );
+            const data = await response.json();
+            console.log(data);
+            cityName.innerText = `${data.location.name}, ${data.location.region} - ${data.location.country}`;
+            temperature.innerText = `${data.current.temp_c}°C`;
+            weather.innerText = data.current.condition.text;
+            weatherIcon.src = data.current.condition.icon;
+            dateTime.innerText = data.location.localtime;
+        })
+    }
+    else{
+        alert("Geolocation is not supported by this browser.");
+    }
 })
