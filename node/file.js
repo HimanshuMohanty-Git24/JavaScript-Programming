@@ -1,4 +1,8 @@
 const fs = require('fs');
+const os = require('os');
+
+console.log(os.cpus().length);
+
 //Write to file
 //synchronous call
 // fs.writeFileSync('test.txt', 'Hello World!');
@@ -21,8 +25,8 @@ const fs = require('fs');
 
 //Append to file
 //synchronous call
-fs.appendFileSync('test.txt', ',Himanshu!');
-console.log('Saved!');
+// fs.appendFileSync('test.txt', ',Himanshu!');
+// console.log('Saved!');
 
 
 //asynchronous call
