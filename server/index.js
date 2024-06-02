@@ -3,11 +3,14 @@
 const http = require('http');
 const fs = require('fs');
 const { log } = require('console');
+const url = require('url');
 
 const myServer = http.createServer((req,res) => {
     const log =`${Date.now()}: ${req.url} New Req Received\n`;
+    const myUrl = url.parse(req.url,true);
+    console.log(myUrl);
     fs.appendFile('log.txt',log, (err) => {
-        switch(req.url){
+        switch(myUrl.pathname){
             case '/':
                 res.writeHead(200,{'Content-Type':'text/html'});
                 res.end('<h1>Home Page</h1>');
