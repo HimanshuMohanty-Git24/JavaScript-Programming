@@ -1,11 +1,34 @@
 //making a api server
 
-const http = require('http');
-const fs = require('fs');
-const { log } = require('console');
-const url = require('url');
+// const http = require('http');
+// const fs = require('fs');
+// const { log } = require('console');
+// const url = require('url');
+const express = require('express');
+const app = express();//handler function for http server
 
-const myServer = http.createServer((req,res) => {
+app.get('/',(req,res) => {
+    res.send('<h1>Home Page</h1>');
+});
+
+app.get('/about',(req,res) => {
+    res.send('<h1>About Page</h1>');
+});
+
+app.get('/data',(req,res) => {
+    res.json({message:'Hello World'});
+});
+
+app.listen(8000,() => {
+    console.log('Server is running on port 8000');
+});
+
+
+
+// const myServer = http.createServer(app);
+//the below code is a manual way of creating a server
+/**
+ * (req,res) => {
     const log =`${Date.now()}: ${req.method} ${req.url} New Req Received\n`;
     const myUrl = url.parse(req.url,true);
     console.log(myUrl);
@@ -28,8 +51,9 @@ const myServer = http.createServer((req,res) => {
                 res.end('<h1>Page Not Found</h1>');
         }
     });
-});
-
-myServer.listen(8000, () => {
-    console.log('Server is running on port 8000');
-});
+}
+ */
+//this is used to listen to the server and the port number
+// myServer.listen(8000, () => {
+//     console.log('Server is running on port 8000');
+// });
