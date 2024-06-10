@@ -1,0 +1,7 @@
+REST API
+
+GET     /USERS -List all USERS
+GET     /users/1 - Get user with ID 2
+POST    /users - Create a new user
+Patch   /users/1 - Update user with ID
+DELETE  /users/1 - Delete user with ID 2
