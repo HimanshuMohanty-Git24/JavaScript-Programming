@@ -8,6 +8,17 @@ const port = 3000
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
+app.use((req,res,next)=>{
+    fs.appendFile(
+        "log.txt",
+        `\n${Date.now()}:${req.ip} ${req.method}: ${req.path}`, 
+        (err) => {
+            if (err) throw err;
+        }
+    )
+    next();
+})
+
 app.get("/users",(req,res)=>{
     const html =`
         <ul>
