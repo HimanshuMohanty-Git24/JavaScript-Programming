@@ -7998,19 +7998,5 @@
     "email": "vtruettrr@rediff.com",
     "gender": "Genderfluid",
     "job_title": "Senior Sales Associate"
-  },
-  {
-    "id": 1001,
-    "first_name": "Himanshu",
-    "last_name": "Mohanty",
-    "email": "hkm49906@gmail.com",
-    "job_title": "NLP Engineer"
-  },
-  {
-    "id": 1002,
-    "first_name": "Jane",
-    "last_name": "Doe",
-    "email": "janedoe@gmail.com",
-    "job_title": "ML Engineer"
   }
 ]
